@@ -9,16 +9,30 @@ body {
     background-color: #fff;
 }
 
-.ace_content {
+.mainconsole{
+    color: white;
+}
+
+p{
+    font-size: 18px;;
+}
+
+/* .ace_content {
     position: absolute;
     box-sizing: border-box;
     min-width: 100%;
     contain: style size layout;
     font-variant-ligatures: no-common-ligatures;
     background: #011e3a;
-}
+    
+} */
+.ace_editor, .ace_editor *{
+    font-family: "Monaco", "Menlo", "Ubuntu Mono", "Droid Sans Mono", "Consolas", monospace !important;
+    font-size: 15px !important;
+    font-weight: 400 !important;
+    letter-spacing: 0 !important;
 
-
+    }
 .mainBody{
     background-color: black;
 }
@@ -26,6 +40,7 @@ body {
     background-image: linear-gradient(315deg, #172137 0%, #000000 270%);
     color: #ffffff;
   }
+  
   
 
 .head-strip{
@@ -93,11 +108,14 @@ body {
     color: whitesmoke;
     
 }
-
+.h3 {
+    /* margin-top: 10px; */
+    /* margin-bottom: 10px; */
+}
 /* codeing section */
 
 .coding {
-    height: 85vh;
+    height: 74vh;
     margin: 5px;
     display: grid;
     grid-template-columns: 55% 45%;
@@ -256,7 +274,7 @@ body {
     border-radius: 20px;
    /* background-color: rgba(6, 100, 188, 0.454);*/
     padding:10px 10px 10px 10px;
-    margin-bottom: 5px;
+    /* margin-bottom: 5px; */
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 20px;
     justify-content: left;
@@ -276,6 +294,12 @@ body {
 }
 
 
+@media (min-width: 768px){
+    .navbar-nav {
+        float: right !important;
+        margin: 0;
+    }
+}
 /* Media query for Responsiveness */
 
     @media(max-width:800px){
@@ -432,3 +456,19 @@ body {
 
 
 
+
+
+.queimg{
+
+    height: 200px;
+    width: 300px;
+    padding: 4px ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;;
+}
+.queimg img{
+    height: 100%;
+    width:100%;
+}

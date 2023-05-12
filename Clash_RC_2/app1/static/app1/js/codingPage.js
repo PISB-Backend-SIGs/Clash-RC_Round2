@@ -28,7 +28,7 @@ langSelect.addEventListener('change', function() {
     if(selectedLang==='cpp'){
       editor.session.setMode(`ace/mode/c_cpp`);
       editor.session.setValue("");
-      editor.session.setValue("#include<bits/stdc++.h>\nusing namespace std;\nint main(){\n\n\n\t\t//write your code here \n\t\treturn 0;\n}"); 
+      editor.session.setValue("#include<iostream>\n int main(){{\n\n\n\t\t//write your code here \n\t\treturn 0;\n}"); 
       
     }
     if(selectedLang==='c'){

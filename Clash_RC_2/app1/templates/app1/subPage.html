@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 {% load static %}
-{% load tz %}
 <html lang="en">
 
 <head>
@@ -55,7 +54,7 @@
                   class="nav-link active navvi"
                   aria-current="page"
                   href="{% url 'questions' %}"
-                  style="margin-left: 10px; margin-right: 10px"
+                  style="margin-left: 10px; margin-right: 10px;color:aliceblue;"
                   >Question Hub</a
                 >
               </li>
@@ -64,7 +63,7 @@
                   class="nav-link navvi"
                   aria-current="page"
                   href="{% url 'submission' %}"
-                  style="margin-left: 10px; margin-right: 10px"
+                  style="margin-left: 10px; margin-right: 10px;color:aliceblue;"
                   >Submissions</a
                 >
               </li>
@@ -72,7 +71,7 @@
               <li class="nav-item navvi">
                 <a
                   class="nav-link navvi"
-                  style="margin-left: 10px; margin-right: 10px; cursor: pointer"
+                  style="margin-left: 10px; margin-right: 10px; cursor: pointer;color:aliceblue;"
                   data-bs-toggle="modal"
                   data-bs-target="#LogoutModal"
                   >Logout</a
@@ -83,7 +82,7 @@
                 </button> -->
   
                 <!-- Modal -->
-                <div
+                <!-- <div
                   class="modal fade"
                   id="LogoutModal"
                   tabindex="-1"
@@ -118,18 +117,43 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
               </li>
             </ul>
           </div>
           <a
-            class="navbar-brand navvi pisblogo"
-            href="#"
-            style="padding: 0px; margin-left: 20px"
-            ><img src="{% static 'app1/images/pisblogo.png' %}" alt="Clash Logo" height="30px"
+          class="navbar-brand navvi pisblogo"
+          href="https://pictieee.in/"
+          style="padding: 0px; margin-left: 20px"
+          ><img src="{% static 'app1/images/pisblogo.png' %}" alt="Clash Logo" height="30px"
           /></a>
         </div>
       </nav>
+      
+      <div class="modal fade" id="LogoutModal" tabindex="-1" aria-labelledby="LogoutModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="LogoutModalLabel">Alert!</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center">
+            Are you sure you want to logout ?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" li>
+              Cancel
+            </button>
+            <button type="button" class="btn btn-danger">
+              <a href="{% url 'logout' %}">Logout</a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+     
 
     <!-- Modals by Bootstrap -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -147,6 +171,13 @@
                 Sapien nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur.
                 Tempus urna et pharetra pharetra massa massa. Ut eu sem integer vitae justo eget. Consequat ac felis donec et..</p>
             </div> -->
+            <div class = "modal-text container text-center">
+            <textarea id="freeform" name="freeform" rows="14" cols="55">
+              {% comment %} {%  %}for submission  {% endcomment %}
+              {{submissions.s_code}}
+            </textarea>
+            </div>
+
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
               <button type="button" class="btn2">Copy Submission</button>
@@ -156,7 +187,7 @@
         </div>
     </div>
 
-    <div class="">
+    
 
 
         <!-- <nav class="navbar">
@@ -178,22 +209,23 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Sr. No.</th>
-                        <th>Questions</th>
+                        <th>Question_ID </th>
+                        <th>Language</th>
                         <th>Time</th>
                         <th>Status</th>
                         <th>View</th>
                     </tr>
                 </thead>
                 <tbody>
-                  {% for submission in submissions %}
-                    <tr>
-                        <td>{{submission.q_id }}</td>
-                        <td>{{submission.s_language}}</td>
-                        <td>{{submission.s_time|time:"h:r"}}</td>
-                        <td>
-                            <p class="submitted1">{{submission.q_status}}</p>
-                        </td>
+                {% for submission in submissions %}
+                  <tr>
+                      <td>{{submission.q_id }}</td>
+                      <td>{{submission.s_language}}</td>
+                      <td>{{submission.s_time|time:"h:i"}}</td>
+                      <td>
+                    
+                        {{submission.q_status}}
+                      </td>
                         <td><button class="btn3" data-bs-toggle="modal" data-bs-target="#exampleModal">View</button></td>
                     </tr>
                     {% endfor %}
@@ -208,7 +240,7 @@
             <div class="footer-text pt-3 pb-3">PISB <span>&copy</span></div>
         </div>
     </footer>
-    </div>
+    
 </body>
 
 </html>

@@ -86,9 +86,9 @@
 
         <!-- <span>I have read all the instructions carefully.</span> -->
         <form method="POST">
+          {% csrf_token %}
           
           <label class="form-check-label" for="flexCheckDefault">
-            {% csrf_token %}
 
 
           </label>
@@ -98,7 +98,7 @@
         <input
           class="form-check-input checkbox"
           type="checkbox"
-          name="checkbox"
+          name="checked"
           value="checked"
           id="flexCheckDefault"
           onclick="terms_changed(this)"
